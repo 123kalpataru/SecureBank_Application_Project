@@ -1,0 +1,397 @@
+/* ===========================
+   Global Page Styling
+   =========================== */
+body {
+    font-family: Arial, sans-serif;
+    background: navy;          /* Navy blue background */
+    margin: 0;
+    padding: 0;
+    color: white;              /* Default text color white for contrast */
+}
+
+header { 
+	display: flex;
+	 justify-content: space-between; 
+	 align-items: center; 
+	 background: #001f3f; 
+	 padding: 15px 30px; 
+	 }
+
+
+header h1
+ { 
+ margin: 0; 
+ font-size: 22px; 
+ color: #00aced; /* light blue accent */ 
+ text-shadow: 0 0 8px #00aced; 
+ }
+ 
+ header a.logout 
+ { 
+ color: #ff4d4d;
+  text-decoration: none;
+   font-weight: bold;
+    }
+    header a.logout:hover { 
+    text-shadow: 0 0 8px #ff4d4d;
+     }
+     
+     .ticker { 
+     background: #ffcc00;
+      color: #000;
+       padding: 10px;
+        text-align: center;
+         font-weight: bold; 
+         overflow: hidden;
+     }
+     .ticker p
+      { 
+      display: inline-block; 
+      animation: scrollTicker 12s linear infinite;
+     }
+     
+     
+     @keyframes scrollTicker { 
+     0% { transform: translateX(100%); } 
+     100% { transform: translateX(-100%); }
+}
+/* ===========================
+   Container with Glowing Ring
+   =========================== */
+.container {
+    position: relative;
+    width: 400px;
+    margin: 60px auto;
+    background: #001f3f;       /* Deep navy for container */
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0,0,128,0.5);
+    overflow: hidden;
+    z-index: 1;
+    animation: pulseWidth 6s ease-in-out infinite;
+}
+
+/* Breathing width animation */
+@keyframes pulseWidth {
+    0%   { width: 400px; }
+    50%  { width: 420px; }
+    100% { width: 400px; }
+}
+
+/* Glowing animated border ring */
+.container::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 14px;
+    background: linear-gradient(45deg, #00f, #0ff, #00f, #0ff);
+    background-size: 300% 300%;
+    z-index: -1;
+    animation: glowRing 4s linear infinite;
+}
+
+/* Animate the glowing ring */
+@keyframes glowRing {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+
+
+/* ===========================
+   Headings
+   =========================== */
+h2, h3 {
+    text-align: center;
+    color: #00aced; /* light blue accent */
+}
+
+.time-display {
+	text-align: center; 
+	font-size: 18px; 
+	color: #ffd700; /* golden glow */
+	 margin-top: 20px;
+	  text-shadow: 0 0 8px #ffd700; 
+	  }
+
+.transaction-btn { 
+	display: block; 
+	margin: 30px auto;
+	 padding: 15px 30px; 
+	 background: #00e676; 
+	 color: #000; 
+	 font-size: 18px;
+	  font-weight: bold; 
+	  text-align: center;
+	   border-radius: 8px; 
+	   text-decoration: none;
+	    box-shadow: 0 0 15px #00e676; 
+	    transition: 0.3s;
+	     }
+
+.transaction-btn:hover
+ { background: #1de9b6; 
+ box-shadow: 0 0 25px #1de9b6; 
+ }
+
+/* ===========================
+   Form Styling
+   =========================== */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+select {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+/* Submit button */
+input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background: #0056b3;
+    box-shadow: 0 0 10px #00aced;
+}
+
+/* ===========================
+   Links
+   =========================== */
+a {
+    color: #00aced;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ===========================
+   Error Message
+   =========================== */
+.error {
+    color: #ff4d4d;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* ===========================
+   Table Styling (Dashboard)
+   =========================== */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: #00264d; /* darker navy */
+    color: #fff;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+/* ===========================
+   OTP Verification Box
+   =========================== */
+.otp-box {
+    background: #fff;
+    color: #333;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 320px;
+    text-align: center;
+    margin: auto;
+    margin-top: 100px;
+}
+
+.otp-box h2 {
+    margin-bottom: 20px;
+    color: #00aced;
+}
+
+.otp-box input[type="text"],
+.otp-box input[type="submit"] {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.otp-box input[type="submit"] {
+    background: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.otp-box input[type="submit"]:hover {
+    background: #0056b3;
+    box-shadow: 0 0 10px #00aced;
+}
+#countdown
+ { 
+ color: #007bff; /* dark text visible on white background */ 
+ font-weight: bold; 
+ margin-top: 10px; 
+ }
+ .success-box {
+    text-align: center;        /* center text horizontally */
+    font-size: 20px;
+    color: #00aced;            /* light blue accent */
+    margin-top: 120px;         /* distance from top */
+}
+
+.features 
+{ 
+	text-align: center; 
+	padding: 40px 20px;
+	 background: #001f3f; 
+	 color: #fff; 
+	 }
+	 
+	.features h2
+	 { 
+	 font-size: 28px; 
+	 margin-bottom: 30px; 
+	 color: #00aced; 
+	 text-shadow: 0 0 8px #00aced;
+	  }
+	  
+	  .feature-container { 
+	  display: flex; 
+	  justify-content: center; 
+	  flex-wrap: wrap; 
+	  gap: 20px; 
+	  }
+	  
+	.feature-card {
+	 background: #00264d; 
+	 border-radius: 10px;
+	  padding: 20px; width: 220px;
+	   box-shadow: 0 0 12px rgba(0, 172, 237, 0.6);
+	    transition: transform 0.3s ease, box-shadow 0.3s ease;
+	     opacity: 0; 
+	     transform: translateY(30px);
+	      animation: fadeSlideUp 1s ease forwards;
+	}
+	
+	.feature-card:nth-child(1)
+	 { animation-delay: 0.2s; } 
+	 .feature-card:nth-child(2) { animation-delay: 0.4s; } 
+	 .feature-card:nth-child(3) { animation-delay: 0.6s; }
+	  .feature-card:nth-child(4) { animation-delay: 0.8s; } 
+	  @keyframes fadeSlideUp { to { opacity: 1; 
+	  transform: translateY(0); } }
+	    .feature-card:hover 
+	    { transform: translateY(-8px) scale(1.05);
+	    box-shadow: 0 0 20px #00aced; 
+	    }
+	     .feature-card .icon { 
+	     font-size: 40px; 
+	     margin-bottom: 10px;
+	     animation: pulseIcon 2s infinite;
+	      }
+	     @keyframes pulseIcon { 0%, 100% { transform: scale(1); } 
+	     50% { transform: scale(1.2); } }
+	    footer { 
+	    background: #001f3f; 
+	    color: #fff; 
+	    text-align: center; 
+	    padding: 20px; 
+	    margin-top: 40px;
+	     border-top: 2px solid #00aced; 
+	     box-shadow: 0 -2px 10px rgba(0, 172, 237, 0.6); 
+	     } 
+	     footer p { 
+	     margin: 8px 0; 
+	     font-size: 14px; 
+	     color: #ddd;
+	      }
+	      
+	      footer a { 
+	      color: #00aced; 
+	      text-decoration: none; 
+	      margin: 0 8px; 
+	      transition: color 0.3s ease, text-shadow 0.3s ease;
+	      }
+	      
+	      footer a:hover { 
+	      color: #1de9b6;
+	       text-shadow: 0 0 8px #1de9b6;
+	        }
+	        
+	body.dark-mode { background: #111; 
+	color: #eee;
+	 } 
+	 body.dark-mode
+	  .container { background: #222; 
+	  } 
+	  body.dark-mode 
+	  .feature-card { background: #333;
+	   color: #eee;
+	    } 
+	    body.dark-mode 
+	    footer { background: #111; 
+	    border-top: 2px solid #1de9b6;
+	     }        
+	        
+	        
+	        body.large-text { 
+	        font-size: 18px; /* larger base font size */
+	         } 
+	         input, select, button { font-size: inherit; /* scale with body font size */
+	          }
+	          
+	          
+	          @media (max-width: 768px)
+	           { .container { width: 90%; /* shrink container on smaller screens */
+	            } 
+	            .feature-container { 
+	            flex-direction: column; /* stack feature cards vertically */
+	             align-items: center; }
+	              .feature-card { width: 90%; /* full width cards on mobile */ 
+	              }
+	               header 
+	               { 
+	               flex-direction: column;
+	                text-align: center;
+	                 }
+	        header h1
+	         {
+	          margin-bottom: 10px;
+	           } 
+	           header a.logout {
+	            margin-top: 5px; 
+	            } 
+	            }
+ 
